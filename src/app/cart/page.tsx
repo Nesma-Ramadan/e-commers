@@ -14,12 +14,12 @@ import Link from "next/link";
 
 
 
-export default function CartPage() {
+export default function CartInformation() {
 
 
-const { productsCart, setProductsCart , totalCartPrice ,setTotalCartPrice } = useContext<CartContextType>(cartContext);
+const {productsCart, setProductsCart , totalCartPrice ,setTotalCartPrice } = useContext<CartContextType>(cartContext);
 
-console.log(productsCart,"pppp");
+
 
 
 // delete product from cart function
@@ -70,7 +70,7 @@ console.log(productsCart,"pppp");
     try {
 
       const res = await RemoveAllCart()
-      console.log(res);
+      console.log(res ,"rrrr");
 
       if (res.statusMsg === "fail") {
         toast.error("you must login before to update products")
@@ -88,6 +88,8 @@ console.log(productsCart,"pppp");
 
     }
   }
+
+
 
   return (
     <>
@@ -115,7 +117,7 @@ console.log(productsCart,"pppp");
               </div>
 
 
-              {productsCart?.map((product) =>
+              {productsCart.length>0?productsCart.map((product) =>
 
                 <div key={product._id} className="product-details flex justify-between items-center border p-4 rounded-lg shadow-sm mt-4 ">
 
@@ -130,7 +132,7 @@ console.log(productsCart,"pppp");
                       />
                     </div>
                     <div className="details text-start">
-                      <h1 className="font-bold">{product.product.title.split(" ").slice(0, 2).join(" ")}</h1>
+                      <h1 className="font-bold">{product.product?.title?.split(" ").slice(0, 2).join(" ")}</h1>
                       <p className="text-neutral-500">quantity:{product.product.quantity}</p>
                       <p className="text-neutral-500 font-medium">price:$ {product.price}</p>
                       <div className="star flex justify-center items-center gap-2  w-fit py-4">
@@ -158,7 +160,7 @@ console.log(productsCart,"pppp");
 
 
                 </div>
-              )}
+              ): toast.error('you should add product befor')}
 
 
 

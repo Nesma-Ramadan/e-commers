@@ -17,15 +17,22 @@ export async function RegesterAction(data: RegesterFormeType) {
     });
 
     const result = await response.json()
-    console.log(result)
+
     if (!response.ok) {
-      
+
       return { success: false, message: result.message || "Something went wrong" };
     }
 
     return { success: true, data: result };
-  } catch (error) {
-    return { success: false, message: error.message || "Unexpected error" };
+  } catch (error: unknown) {
+    let message = "Unexpected error"
+    if (error instanceof Error) {
+      message = error.message;
+    } else if (typeof error === "string") {
+      message = error;
+    }
+
+    return { success: false, message };
   }
 
 

@@ -7,7 +7,7 @@ import { Product, WishlistContextType } from "@/Typs/AllProduct.model";
 import { GetLggedUserWishlist } from "../action/Wishlist.action";
 
 
-export const WishlistContext = createContext<WishlistContextType>();
+export const WishlistContext = createContext<WishlistContextType>({productsWishlist:[] , setProductsWishlist:()=>{}});
 
 export default function WishlistContextProvider({ children }: { children: React.ReactNode }) {
 

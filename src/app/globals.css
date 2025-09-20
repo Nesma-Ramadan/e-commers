@@ -263,3 +263,44 @@ html{
   background-position:center;
   background-repeat: no-repeat;
 }
+
+input[type="radio"] {
+  /* Hide the default radio button */
+  appearance: none;
+  -webkit-appearance: none; /* For Safari */
+  -moz-appearance: none; /* For Firefox */
+
+  /* Define custom styling for the radio button */
+  position: relative;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #FF8E00; /* Orange border */
+  border-radius: 50%; /* Makes it circular */
+  background-color: white; /* White background for unchecked state */
+  cursor: pointer;
+  outline: none; /* Remove default outline on focus */
+}
+
+/* Optional: Add a focus state for accessibility */
+input[type="radio"]:focus {
+  box-shadow: 0 0 0 3px rgba(255, 142, 0, 0.3); /* Subtle orange glow on focus */
+}
+
+/* Styling for the checked state */
+input[type="radio"]:checked {
+  background-color: white; /* Keep background white */
+  border: 2px solid #FF8E00; /* Maintain border color */
+}
+
+/* Create the inner dot for the checked state */
+input[type="radio"]:checked::after {
+  content: "";
+  position: absolute;
+  width: 12px; /* Smaller than the outer circle */
+  height: 12px;
+  background-color: #FF8E00; /* Orange fill for the dot */
+  border-radius: 50%; /* Circular dot */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Center the dot */
+}

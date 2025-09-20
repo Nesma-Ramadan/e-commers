@@ -56,10 +56,11 @@ export interface ProductDetailsProps {
 
 
 export interface CartContextType {
-    productsCart: CartProduct[]
-    setProductsCart: React.Dispatch<React.SetStateAction<CartProduct[]>>
-    totalCartPrice: number
-    setTotalCartPrice: React.Dispatch<React.SetStateAction<number>>
+    cartId:string,
+    productsCart: CartProduct[],
+    setProductsCart: React.Dispatch<React.SetStateAction<CartProduct[]>>,
+    totalCartPrice: number,
+    setTotalCartPrice: React.Dispatch<React.SetStateAction<number>>,
 }
 
 export interface CartProduct {
