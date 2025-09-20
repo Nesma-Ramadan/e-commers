@@ -29,9 +29,9 @@ export interface Product {
     id: string;
     imageCover: string;
     images: string[];
-    count:number;
+    count: number;
     price: number;
-    priceAfterDiscount?:number;
+    priceAfterDiscount?: number;
     quantity: number;
     ratingsAverage: number;
     reatingQuantity: number;
@@ -50,18 +50,36 @@ export interface Product {
 //////////////////////////////////////////////////////////////////////////////////
 
 export interface ProductDetailsProps {
-     
-    params:{id:string}
+
+    params: { id: string }
 }
 
 
 export interface CartContextType {
-  productsCart: Product[]
-  setProductsCart:React.Dispatch<React.SetStateAction<Product[]>>
-  totalCartPrice: number
-   setTotalCartPrice:React.Dispatch<React.SetStateAction<number>>
+    productsCart: CartProduct[]
+    setProductsCart: React.Dispatch<React.SetStateAction<CartProduct[]>>
+    totalCartPrice: number
+    setTotalCartPrice: React.Dispatch<React.SetStateAction<number>>
 }
+
+export interface CartProduct {
+    count: number
+    price: number
+    product: {
+        brand: Brand
+        category: Category,
+        id: string,
+        imageCover: string,
+        quantity: number,
+        ratingsAverage: number,
+        subcategory: Subcategory[],
+        title: string
+        _id: string,
+    }
+    _id: string
+}
+
 export interface WishlistContextType {
-  productsWishlist: Product[]
-  setProductsWishlist:React.Dispatch<React.SetStateAction<Product[]>>
+    productsWishlist: Product[]
+    setProductsWishlist: React.Dispatch<React.SetStateAction<Product[]>>
 }

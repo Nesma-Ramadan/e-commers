@@ -10,15 +10,18 @@ import { signIn } from 'next-auth/react';
 
 
 
-import { useForm } from 'react-hook-form';
+import { FieldValues, useForm } from 'react-hook-form';
+import { SubmitHandler } from 'react-hook-form';
 
 
-export function SignUpForm({ errorMessage, setErrorMessage ,onSwitch}: { errorMessage?: string | null, setErrorMessage: React.Dispatch<React.SetStateAction<string | null>> ,  onSwitch: (mode: 'login' | 'signup') => void }) {
+export  function SignUpForm({errorMessage, setErrorMessage ,onSwitch}: { errorMessage?: string | null,setErrorMessage: React.Dispatch<React.SetStateAction<string | null>> ,  onSwitch: (mode: 'login' | 'signup') => void }) {
 
-  const { handleSubmit, register, formState, getValues } = useForm();
-  async function onSubmit(data: RegesterFormeType) {
+  const { handleSubmit, register, formState, getValues } = useForm<RegesterFormeType>();
 
-    const result = await RegesterAction(data);
+
+  const onSubmit:SubmitHandler<FieldValues> = async (data)=> {
+
+    const result = await RegesterAction(data as RegesterFormeType);
     if (!result.success) {
       setErrorMessage(result.message); // 👈 هنا بناخد الرسالة من الـ action
     } else {
@@ -78,7 +81,7 @@ export function SignUpForm({ errorMessage, setErrorMessage ,onSwitch}: { errorMe
 
         {formState.errors.rePassword && formState.touchedFields.rePassword && <p className='text-red-500'>{formState.errors.rePassword?.message}</p>}
 
-        <input type="phone" placeholder='Enter your phone' className='w-full p-5 my-4 border border-[#FF8E00] rounded-md outline-0 focus:border-2 text-gray-800 bg-[#e9e3db]'
+        <input type="tel" placeholder='Enter your phone' className='w-full p-5 my-4 border border-[#FF8E00] rounded-md outline-0 focus:border-2 text-gray-800 bg-[#e9e3db]'
           {...register("phone",
             {
               required: { value: true, message: 'phone is required' },
@@ -100,14 +103,14 @@ export function SignUpForm({ errorMessage, setErrorMessage ,onSwitch}: { errorMe
   )
 }
 
-export function LogInForm({ setErrorMessage, setSuccessMessage, onClose }: { setErrorMessage: React.Dispatch<React.SetStateAction<string | null>>, setSuccess1Message: React.Dispatch<React.SetStateAction<string | null>>, onClose: () => void }) {
+export function LogInForm({ setErrorMessage, setSuccessMessage, onClose }: { setErrorMessage: React.Dispatch<React.SetStateAction<string | null>>, setSuccessMessage: React.Dispatch<React.SetStateAction<string | null>>, onClose: () => void }) {
 
-  const { handleSubmit, register, formState } = useForm();
-
-
+  const { handleSubmit, register, formState } = useForm<LogInFormeType>();
 
 
-  async function onSubmit(data: LogInFormeType) {
+
+
+  const onSubmit:SubmitHandler<FieldValues>= async (data)=> {
 
     try {
 
@@ -130,7 +133,7 @@ export function LogInForm({ setErrorMessage, setSuccessMessage, onClose }: { set
 
 
     } catch (error) {
-      setErrorMessage(error.message || "Unexpected error");
+      setErrorMessage(error instanceof Error ? error.message : "Unexpected error");
       setSuccessMessage(null);
     }
 

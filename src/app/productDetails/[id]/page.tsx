@@ -26,8 +26,8 @@ export default async function ProductDetails({ params }: ProductDetailsProps) {
               <div className=' border border-gray-400 rounded-lg shadow-lg'>
                 <Image
 
-                  src={productData?.imageCover}
-                  alt={productData?._id}
+                  src={productData?.imageCover || ''}
+                  alt={productData?._id || ''}
 
                   width={600}
                   height={300}

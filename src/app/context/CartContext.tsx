@@ -4,15 +4,15 @@ import { createContext } from "react"
 import { GetLggedUserCart } from "../action/Cart.action";
 import toast from "react-hot-toast";
 import { useEffect, useState } from "react";
-import { CartContextType, Product,  } from "@/Typs/AllProduct.model";
+import { CartContextType, CartProduct } from "@/Typs/AllProduct.model";
 
 
 
-export const cartContext = createContext<CartContextType>();
+export const cartContext = createContext<CartContextType >({ productsCart: [], setProductsCart: () => {}, totalCartPrice: 0, setTotalCartPrice: () => {}});
 
 export default function CartContextProvider({ children }: { children: React.ReactNode }) {
 
-  const [productsCart, setProductsCart] = useState<Product[]>([])
+  const [productsCart, setProductsCart] = useState<CartProduct[]>([])
 
   const [totalCartPrice, setTotalCartPrice] = useState<number>(0)
 

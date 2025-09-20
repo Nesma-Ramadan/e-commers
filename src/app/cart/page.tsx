@@ -19,7 +19,7 @@ export default function CartPage() {
 
 const { productsCart, setProductsCart , totalCartPrice ,setTotalCartPrice } = useContext<CartContextType>(cartContext);
 
-console.log(productsCart);
+console.log(productsCart,"pppp");
 
 
 // delete product from cart function

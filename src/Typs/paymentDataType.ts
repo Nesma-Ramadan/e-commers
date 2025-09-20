@@ -1,8 +1,8 @@
 
-export interface PaymentDataType{
+export interface PaymentDataType {
 
-     details: string,
+        details: string,
         phone: string,
         city: string
-        
+
 }
