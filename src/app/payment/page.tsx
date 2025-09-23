@@ -33,6 +33,7 @@ export default function Orderpage() {
     if (paymentMethod === 'cash') {
 
       try {
+        
 
         const res = await getCashOrder(cartId, data as PaymentDataType)
 

@@ -16,7 +16,7 @@ export interface ResCashType {
                 createdAt: string,
                 id: number,
                 isDelivered: boolean,
-                isPaid: boolean;
+                isPaid: boolean,
                 paymentMethodType: string,
                 shippingAddress: PaymentDataType,
                 shippingPrice: number,

@@ -71,12 +71,12 @@ export default function NavList() {
 
     return (
         <>
-            <nav className=' py-5 border-b-2  '>
+            <nav className=' py-5 border-b-2  hidden lg:flex '>
                 <div className="list container m-auto  ">
-                    <ul className=' flex justify-center gap-10 text-lg'>
+                    <ul className=' flex justify-center gap-12 lg:text-[16px] '>
 
 
-                        {list.map((item) => <li key={item.id} className={`capitalize  text-gray-400 ${pathName === item.link ? 'active' : ''} hover:text-[#FF8E00] hover:font-semibold `}><Link href={item.link} className=''>{item.text}</Link></li>)}
+                        {list.map((item) => <li key={item.id} className={`capitalize  text-gray-400  ${pathName === item.link ? 'active' : ''} hover:text-[#FF8E00] hover:font-semibold `}><Link href={item.link} className=''>{item.text}</Link></li>)}
 
 
                     </ul>

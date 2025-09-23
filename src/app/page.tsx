@@ -29,7 +29,7 @@ export default async function Home() {
 
 
 
-          <div className=" ">
+          <div className="  ">
 
             <OfferCard data={allProducts} />
 

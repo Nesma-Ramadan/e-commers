@@ -20,11 +20,11 @@ export default function AuthModal({ mode, onClose, onSwitch }: Modaltype) {
 
 
   return (
-    <div className="signup  z-10 flex justify-center items-start h-screen  w-screen py-8 bg-black/25 absolute backdrop-blur-sm ">
+    <div className="signup  z-10 flex justify-center items-start h-screen  w-screen py-8 bg-black/25 absolute backdrop-blur-sm  px-8">
 
 
 
-      <div className="form w-1/3 rounded-lg relative  shadow-2xl">
+      <div className="form w-full lg:w-1/3 rounded-lg relative  shadow-2xl">
 
 
         <div className=' bg-[#38230a]/30 backdrop-blur-2xl p-8 rounded-lg'>

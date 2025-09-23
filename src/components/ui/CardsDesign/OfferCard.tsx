@@ -17,7 +17,7 @@ export default function OfferCard({ data }: { data: Product[]  }) {
     return (
         <>
 
-            <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 justify-between items-center mx-auto my-5">
+            <div className="hidden  lg:grid  grid-cols-3 gap-10 justify-between items-center mx-auto my-5">
 
                 {offer?.map((card) => (
 
