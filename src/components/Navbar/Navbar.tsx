@@ -50,7 +50,9 @@ export default function Navbar() {
                 <div className="container m-auto flex justify-between items-center ">
 
                     <div className="logo">
-                        <Image src='/11637212_4776040.png' alt="logo" width={80} height={80} />
+                        <Link href='/'>
+                        <Image src='/11637212_4776040.png' alt="logo" width={100} height={100} />
+                        </Link>
                     </div>
 
                     {/* search */}
@@ -71,10 +73,10 @@ export default function Navbar() {
                         <Link href='/wishlist' onClick={handlMiddleware}> <div className="favorite flex flex-col justify-center items-center gap-2  cursor-pointer ">
 
                             <div className="i  relative">
-                                <Heart className=" inline-block " color="#228D85" />
-                                <div className="padg flex justify-center items-center w-4 h-4 rounded-full text-center bg-[#FF8E00]  text-[10px] absolute -top-1 -right-2">{productsWishlist.length}</div>
+                                <Heart className=" inline-block " color={`${pathname === '/wishlist'?'#FF8E00':'#6a7282'}`}  />
+                                <div className={` padg flex justify-center items-center w-4 h-4 rounded-full text-center bg-[#FF8E00]  text-[10px] absolute -top-1 -right-2`}>{productsWishlist.length}</div>
                             </div>
-                            <h5 className=" text-gray-500 capitalize text-[16px]">favorite</h5>
+                            <h5 className={ `${pathname === '/wishlist'?'text-[#FF8E00]':'text-gray-500'} capitalize text-[16px]`}>favorite</h5>
 
                         </div></Link>
 
@@ -82,10 +84,10 @@ export default function Navbar() {
                         <Link href='/cart' onClick={handlMiddleware}><div className="favorite flex flex-col justify-center items-center gap-2 cursor-pointer">
 
                             <div className="i  relative">
-                                <ShoppingCart className=" inline-block" color="#228D85" />
+                                <ShoppingCart className=" inline-block" color={`${pathname === '/cart'?'#FF8E00':'#6a7282'}`} />
                                 <div className="padg flex justify-center items-center w-4 h-4 rounded-full text-center bg-[#FF8E00]  text-[10px] absolute -top-1 -right-2">{productsCart.length}</div>
                             </div>
-                            <h5 className=" text-gray-500 capitalize text-[16px]">cart</h5>
+                            <h5 className={`${pathname === '/cart'?'text-[#FF8E00]':'text-gray-500'} text-gray-500 capitalize text-[16px]`}>cart</h5>
 
                         </div></Link>
 
@@ -101,7 +103,7 @@ export default function Navbar() {
                                 <Button size='sm' type='secondary' tittel="Log in" className=" " click={() => setAuthMode('login')} />
 
                             </div> :
-                            <span onClick={() => signOut({ callbackUrl: "/" })} className=" text-red-600 font-bold capitalize cursor-pointer px-4">Log out</span>
+                            <span onClick={() => signOut({ callbackUrl: "/" })} className="text-[#FF8E00] hover:text-red-600 text-[20px] font-bold capitalize cursor-pointer px-4">Log out</span>
                         }
 
 

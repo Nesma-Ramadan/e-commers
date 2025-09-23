@@ -97,7 +97,12 @@ const {productsCart, setProductsCart , totalCartPrice ,setTotalCartPrice } = use
       <div className="cart">
         <div className="container mx-auto">
 
-          <h1 className=" text-3xl font-bold text-[#FF8E00] mb-4 p-4 capitalize">shopping cart</h1>
+          <div className="header flex justify-between items-center">
+          <h2 className=" text-3xl font-bold text-[#FF8E00] mb-4 p-4 capitalize">shopping cart</h2>
+          <Link href='/allorders'><h2 className="text-lg underline cursor-pointer text-neutral-500 hover:text-[#FF8E00]">view all order</h2></Link>
+
+          </div>
+
 
           <div className="cart-content  grid grid-cols-4 gap-4">
 
